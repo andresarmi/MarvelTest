@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+        #logo-header {
+            float: left;
+            padding: 15px 0 0 20px;
+            text-decoration: none;
+        }
+
+        input[type=text], select {
+            width: 40%;
+            padding: 12px 20px;
+            margin: 20px 30px;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link href="~/Css/Characters.css" rel="stylesheet" />
+    <link href="~/Css/style.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/list.js"></script>
+</head>
+<body>
+
+    <header id="main-header"  style="position:fixed;top:0;width:100%;z-index:3;">
+        <a id="logo-header" href="#">
+            <IMG SRC="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/MarvelLogo.svg/1200px-MarvelLogo.svg.png" WIDTH=140 HEIGHT=210 BORDER=0>
+        </a> <!-- / #logo-header -->
+        <div>
+            <p>
+                <input type="text" id="txtSearch" value="Search Character" class="search" />
+                <label><IMG SRC="export/icons/search.png"></label>
+            </p>
+        </div>
+    </header>
+    <div class="container body-content col-12" style="z-index:1;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <table>
+                <tr>
+                    <td>
+                        <p>&copy; 2017 <a href="#">Andres Felipe Sarmiento Suarez</a></p>
+                    </td>
+                    <td width="20%">
+                        <IMG SRC="~/export/grability-logo.png" WIDTH=50 HEIGHT=50 BORDER=0>
+                    </td>
+                </tr>
+            </table>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

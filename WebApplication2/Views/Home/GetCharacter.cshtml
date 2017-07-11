@@ -1,0 +1,66 @@
+﻿@model Rootobject
+
+<script>
+    var monkeyList = new List('list', {
+        valueNames: ['name'],
+        page: 10,
+        pagination: true
+    });
+</script>
+<style>
+    .pagination li {
+        display: inline-block;
+        padding: 5px;
+    }
+</style>
+
+
+
+<div class="row" style="margin-top:50px;margin-left:50px;">
+    <div class="col2">
+        <img src="~/export/icons/characters.png" style="margin-top:50px;" />
+    </div>
+    <div class="col-5">
+        <h2 style="vertical-align:middle;margin-top:50px;">Characters</h2>
+    </div>
+</div>
+
+<div id="list" style="margin-top:50px;">
+    <ul class="list">
+        @foreach (var item in Model.data.results)
+            {
+            <li class="double col-6" style="width:100%">
+                <div class="BaseCharacter rcorners2">
+                    <div style="float:left;height:100px; width:150px">
+                        <div class="avatar" style="background-image: url(@item.thumbnail.ToString())"></div>
+                    </div>
+                    <div class="NameCharacter">
+                        <p class="name">@item.name</p>
+                    </div>
+                    <div class="DescriptionCharacter">
+                        @item.description
+                    </div>
+                    <div class="ComicCharacter">
+                        <h6>Related Comics</h6>
+                        <button id="btnViewMore" class="button ViewMore">VIEW MORE</button>
+                       
+                        <ul style="column-count:2">
+                            @foreach (var Comics in item.comics.getMaxItem(4))
+                            {
+                                <li style=" word-wrap: break-word;">
+                                    @Comics.name
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <ul class="pagination"></ul>
+</div>
+
+
+
+
+

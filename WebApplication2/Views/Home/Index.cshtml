@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        rootUrl = '@Url.Content("~")';
+        $('#LoadCharacter').load('/home/GetCharacter/', function () { });
+        $('#LoadComic').load('/home/GetComic/', function () { });
+    });
+
+
+</script>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class=" col-lg-10">
+            <div id="LoadCharacter" style="border-style:solid;">
+
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div id="LoadComic" style="background-color:gray; width:100%;border-style:solid;">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
